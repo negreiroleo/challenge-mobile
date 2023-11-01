@@ -6,20 +6,20 @@ const LoginScreen = () => {
     <View style={styles.container}>
       <Image source={require('./logo.png')} style={styles.logo} />
       <Text style={styles.title}>Bem vindo ao Rapidex - C&P</Text>
-      <Text style={styles.label}>Enter CNPJ</Text>
+      <Text style={styles.label}>CNPJ</Text>
       <TextInput
         style={styles.input}
         placeholder=""
         placeholderTextColor="black"
       />
-      <Text style={styles.label}>Enter Password</Text>
+      <Text style={styles.label}>Senha</Text>
       <TextInput
         style={styles.input}
         placeholder=""
         placeholderTextColor="black"
         secureTextEntry={true}
       />
-      <Text style={styles.passwordWarning}>Your password is between 4 and 12 characters</Text>
+      <Text style={styles.passwordWarning}>Sua senha deve ter entre 4 à 12 caracteres</Text>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
