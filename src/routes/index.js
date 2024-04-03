@@ -1,9 +1,9 @@
-import { createNativeStackNavigation } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Wellcome from '../pages/Wellcome';
 import Signin from '../pages/Signin';
 
-const Stack = createNativeStackNavigation();
+const Stack = createNativeStackNavigator();
 
 export default function Routes() {
   return (
