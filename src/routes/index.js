@@ -8,8 +8,9 @@ const Stack = createNativeStackNavigator();
 export default function Routes() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Wellcome" component={Wellcome} />
-      <Stack.Screen name="Signin" component={Signin} />
+      <Stack.Screen name="Wellcome" component={Wellcome} options={{headerShown: false}} />
+      <Stack.Screen name="Signin" component={Signin} options={{headerShown: false}} />
+      <Stack.Screen name="Homepage" component={Homepage} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 }
