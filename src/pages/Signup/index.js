@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function Signin({ navigation }) {
+export default function Signup({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
-    // Valide o login do usuário
-    const userData = localStorage.getItem('userData');
-    if (userData) {
-      const { email: storedEmail, password: storedPassword } = JSON.parse(userData);
-      if (email === storedEmail && password === storedPassword) {
-        // Navegue para a página de Home após o login bem-sucedido
-        navigation.navigate('Homepage');
+  const handleSignup = () => {
+    try {
+      // Valide os dados do usuário
+      if (email && password) {
+        // Armazene os detalhes do usuário no localStorage
+        localStorage.setItem('userData', JSON.stringify({ email, password }));
+        // Navegue de volta para a página de Signin após o cadastro
+        navigation.navigate('Signin');
       } else {
-        setError('Credenciais inválidas. Por favor, tente novamente.');
+        setError('Por favor, preencha todos os campos.');
       }
-    } else {
-      setError('Nenhum usuário cadastrado. Por favor, cadastre-se primeiro.');
+    } catch (error) {
+      console.log('Erro ao cadastrar:', error);
+      setError('Erro ao cadastrar. Por favor, tente novamente.');
     }
   };
 
   return (
     <View style={[styles.container, { backgroundColor: '#0C79DD' }]}>
-      <Text style={styles.title}>ENTRAR</Text>
+      <Text style={styles.title}>CADASTRO</Text>
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>E-MAIL</Text>
         <TextInput
-          placeholder=""
+          placeholder="Digite seu e-mail"
           style={styles.input}
           value={email}
           onChangeText={setEmail}
@@ -38,20 +39,19 @@ export default function Signin({ navigation }) {
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>SENHA</Text>
         <TextInput
-          placeholder=""
+          placeholder="Digite sua senha"
           style={styles.input}
           secureTextEntry
           value={password}
           onChangeText={setPassword}
         />
       </View>
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>ENTRAR</Text>
+      <TouchableOpacity style={styles.button} onPress={handleSignup}>
+        <Text style={styles.buttonText}>CADASTRAR</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

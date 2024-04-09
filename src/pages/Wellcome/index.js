@@ -2,19 +2,24 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Wellcome({ navigation }) {
+  const handleLoginNavigation = () => {
+    navigation.navigate('Signin');
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: '#0C79DD' }]}>
       <Text style={styles.title}>Bem vindo ao</Text>
       <Text style={styles.subtitle}>RC&P</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Signin')}>
+      <TouchableOpacity style={styles.button} onPress={handleLoginNavigation}>
         <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, { width: 172 }]} onPress={() => navigation.navigate('Cadastro')}>
+      <TouchableOpacity style={[styles.button, { width: 172 }]} onPress={() => navigation.navigate('Signup')}>
         <Text style={styles.buttonText}>CADASTRAR</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -36,10 +41,10 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     padding: 10,
-    width: 172, // Define a largura dos botões
+    width: 172,
     backgroundColor: 'black',
     borderRadius: 5,
-    alignItems: 'center', // Centraliza o texto horizontalmente
+    alignItems: 'center',
   },
   buttonText: {
     fontFamily: 'Times New Roman',
