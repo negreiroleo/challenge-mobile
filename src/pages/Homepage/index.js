@@ -13,9 +13,9 @@ export default function Homepage() {
           let iconName;
 
           if (route.name === 'Home') {
-            iconName = 'md-home'; // Ícone para a tela Home
+            iconName = 'home'; // Ícone para a tela Home
           } else if (route.name === 'Settings') {
-            iconName = 'md-settings'; // Ícone para a tela Settings
+            iconName = 'settings'; // Ícone para a tela Settings
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
